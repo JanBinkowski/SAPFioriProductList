@@ -1,0 +1,19 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.training.odatatest1.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="page" title="{i18n>title}">
+					<content>
+						<List headerText="Products" items="{/Products}" growing="true" growingScrollToLoad="true" growingThreshold="15" id="productList">
+							<StandardListItem type="Navigation" title="{ID}" description="{Name}" press="goToDetailsView" id="productListItem"/>
+						</List>
+					</content>
+					<headerContent>
+						<Button xmlns="sap.m" text="Create new product" id="button1" press="action"
+							action:wiring="\{'press':\{'navigation':\{'routeName':'addProductForm'\}\}\}" icon="sap-icon://add"/>
+					</headerContent>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

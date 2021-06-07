@@ -1,0 +1,154 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "sap.training.odatatest1",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"OData.svc": {
+				"uri": "/Northwind/V2/(S(jepvpn3di12vfxncx1fofirx))/OData/OData.svc/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "sap.training.odatatest1.view.Main",
+			"type": "XML",
+			"async": true,
+			"id": "Main"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.training.odatatest1.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "OData.svc",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "sap.training.odatatest1.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"viewLevel": 1
+			},
+			"routes": [
+				{
+					"name": "addProductForm",
+					"pattern": "addProductForm",
+					"target": [
+						"addProductForm"
+					]
+				},
+				{
+					"name": "ProductDetails",
+					"pattern": "Products{SelectedItem}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetDetails"
+					]
+				},
+				{
+					"name": "Main",
+					"pattern": "Main",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetMain"
+					]
+				}
+			],
+			"targets": {
+				"TargetMain": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Main"
+				},
+				"addProductForm": {
+					"viewType": "XML",
+					"viewName": "addProductForm"
+				},
+				"ProductDetails": {
+					"viewType": "XML",
+					"viewName": "ProductDetails"
+				},
+				"TargetDetails": {
+					"viewType": "XML",
+					"transition": "",
+					"clearControlAggregation": false,
+					"viewName": "ProductDetails"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zfiori_test_jb/webapp",
+		"_version": "1.1.0"
+	}
+}

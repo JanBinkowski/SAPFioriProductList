@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.training.odatatest1.controller.ProductDetails">
+	<App>
+		<pages><Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Main'\}\}\}" showNavButton="true" title="{i18n>productDetailsHeader} {ID}">
+				<content>
+				    <VBox width="100%" direction="Column" id="vbox1">
+				    	 <Table>
+				        <items>
+				            <ColumnListItem id="item6">
+				                <cells>
+				                	 <Label text="{i18n>productID}"/>
+				                    <Input id="IDDetails" value="{ID}" editable="false"/>
+				                </cells>
+				            </ColumnListItem>
+				            <ColumnListItem>
+				                <cells>
+				                    <Label text="{i18n>productName}"/>
+				                    <Input value="{Name}" editable="false"/>
+				                </cells>
+				            </ColumnListItem>
+				           
+				               <ColumnListItem>
+				                <cells>
+				                    <Label text="{i18n>productDescription}"/>
+				                    <Input value="{Description}" placeholder="Description" action:w5g.dt.context="/Products" id="Description"/>
+				                </cells>
+				            </ColumnListItem>
+				            <ColumnListItem>
+				                <cells>
+				                    <Label text="{i18n>productPrice}"/>
+									<Input value="{Price}" editable="false"/>
+				                </cells>
+				            </ColumnListItem>
+				           
+				            <ColumnListItem>
+				                <cells>
+				                    <Label text="{i18n>avarageRating}"/>
+				                    <Input value="{Rating}" editable="false"/>
+				                </cells>
+				            </ColumnListItem>
+				             
+				        </items>
+				        <columns>
+				            <Column>
+				                <header>
+				                    <Label text="{i18n>infoType}"/>
+				                </header>
+				            </Column>
+				            <Column>
+				                <header>
+				                    <Label text="{i18n>value}"/>
+				                </header>
+				            </Column>
+				        </columns>
+				    </Table>
+				    </VBox>
+				</content>
+			<headerContent>
+		
+			<Button xmlns="sap.m" text="Delete" id="button0_1622400872839" icon="sap-icon://delete" press="onDeleteProduct"/>
+		
+			<Button xmlns="sap.m" text="Save" id="button0" icon="sap-icon://save" press="onSaveEditedDescripiton"/>
+		
+			</headerContent>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
